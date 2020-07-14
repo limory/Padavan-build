@@ -63,10 +63,23 @@ jobs:
         sed -i '/CONFIG_FIRMWARE_INCLUDE_ALIDDNS/d' .config #删除配置项阿里DDNS
         sed -i '/CONFIG_FIRMWARE_INCLUDE_SMARTDNS/d' .config #删除配置项SMARTDNS
         sed -i '/CONFIG_FIRMWARE_INCLUDE_SRELAY/d' .config #删除配置项srelay架设socket5代理
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_CADDY/d' .config #删除
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_CADDYBIN/d' .config #删除
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_SSOBFS/d' .config #删除
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_SMARTDNSBIN/d' .config #删除
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_ADGUARDHOME/d' .config #删除
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_WYY/d' .config #删除
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_WYYBIN/d' .config #删除
+        sed -i '/CONFIG_FIRMWARE_WEBUI_HIDE_VPN/d' .config #删除
+        sed -i '/CONFIG_FIRMWARE_PRODUCT_NewID/d' .config #删除
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_ZEROTIER/d' .config #删除
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_V2RAY/d' .config #删除
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_TROJAN/d' .config #删除
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_KOOLPROXY/d' .config #删除
         ######################################################################
         #以下选项是定义你需要的功能（y=集成,n=忽略），重新写入到.config文件
         ######################################################################
-        echo "CONFIG_FIRMWARE_INCLUDE_CADDY=n" >> .config #在线文件管理服务
+        echo "CONFIG_FIRMWARE_INCLUDE_CADDY=n" >> .config #WEB服务及文件管理
         echo "CONFIG_FIRMWARE_INCLUDE_MENTOHUST=n" >> .config #MENTOHUST
         echo "CONFIG_FIRMWARE_INCLUDE_SCUTCLIENT=n" >> .config #SCUTCLIENT
         echo "CONFIG_FIRMWARE_INCLUDE_SSOBFS=n" >> .config # simple-obfs混淆插件
@@ -84,7 +97,7 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_WYYBIN=n" >> .config #网易云解锁GO版本执行文件（4M多）注意固件超大小,不集成会自动下载
         #################### 以下集成到 RM2100 #################################
         echo "CONFIG_FIRMWARE_PRODUCT_NewID=\"Redmi AC2100\"" >> .config #更改管理页面标题
-        echo "CONFIG_FIRMWARE_WEBUI_HIDE_VPN=y" >> .config #删除左侧导航栏VPN选项?
+        echo "CONFIG_FIRMWARE_WEBUI_HIDE_VPN=y" >> .config #删除左侧导航栏VPN选项
         echo "CONFIG_FIRMWARE_INCLUDE_ZEROTIER=y" >> .config #zerotier ~1.3M
         echo "CONFIG_FIRMWARE_INCLUDE_V2RAY=y" >> .config #集成v2ray执行文件（3.8M左右)，如果不集成，会从网上下载下来执行，不影响正常使用
         echo "CONFIG_FIRMWARE_INCLUDE_TROJAN=y" >> .config #集成trojan执行文件(1.1M左右)，如果不集成，会从网上下载下来执行，不影响正常使用
