@@ -32,7 +32,7 @@ jobs:
         pkg-config zlib1g-dev libgmp3-dev libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev wget
     - name: Clone source code
       run: |
-        git clone --depth=1 https://github.com/chongshengB/rt-n56u.git /opt/rt-n56u
+        git clone --depth=1 https://github.com/limory/rt-n56u.git /opt/rt-n56u
         cd /opt/rt-n56u/toolchain-mipsel
         sh dl_toolchain.sh
         mkdir -p /opt/images/
@@ -76,6 +76,7 @@ jobs:
         sed -i '/CONFIG_FIRMWARE_INCLUDE_V2RAY/d' .config #删除
         sed -i '/CONFIG_FIRMWARE_INCLUDE_TROJAN/d' .config #删除
         sed -i '/CONFIG_FIRMWARE_INCLUDE_KOOLPROXY/d' .config #删除
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_MINIDLNA/d' .config #删除
         ######################################################################
         #以下选项是定义你需要的功能（y=集成,n=忽略），重新写入到.config文件
         ######################################################################
@@ -105,6 +106,7 @@ jobs:
         echo "CONFIG_FIRMWARE_PRODUCT_NewID=\"Xiaomi R3G\"" >> .config #更改管理页面标题
         echo "CONFIG_FIRMWARE_WEBUI_HIDE_VPN=y" >> .config #删除左侧导航栏VPN选项
         echo "CONFIG_FIRMWARE_INCLUDE_CADDY=y" >> .config #WEB服务及文件管理
+        echo "CONFIG_FIRMWARE_INCLUDE_MINIDLNA=y" >> .config ### Include Minidlna UPnP mediaserver. ~1.6MB
         #########################################################################################
         #自定义添加其它功能请参考源码configs/templates/目录下的config文件。按照上面的格式添加即可
         #格式如下：
@@ -118,5 +120,5 @@ jobs:
       uses: actions/upload-artifact@master
       if: always()
       with:
-        name: Padavan-Xiaomi-R3G-20200714
+        name: Padavan-Xiaomi-R3G-20230204
         path: /opt/images
