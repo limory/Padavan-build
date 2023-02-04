@@ -56,7 +56,7 @@ jobs:
         sed -i 's/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=n/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=y/g' .config
         sed -i 's/CONFIG_FIRMWARE_PRODUCT_ID/CONFIG_FIRMWARE_PRODUCT_NewID/g' ./user/www/Makefile
         sed -i 's/gomirrors.org\/dl\/go/golang.google.cn\/dl/g' ./tools/Makefile
-        sed -i 's/bintray.com\/htop\/source\/download_file?file_path=htop-/github.com\/htop-dev\/htop\/archive\/refs\/tags\//g' ./user/htop/Makefile
+        #sed -i 's/bintray.com\/htop\/source\/download_file?file_path=htop-/github.com\/htop-dev\/htop\/archive\/refs\/tags\//g' ./user/htop/Makefile
         ################################################################################################
         #因不同型号配置功能不一样，所以先把配置项删除，如果你自己要添加其他的，也要写上删除这一条，切记！！！
         ################################################################################################
@@ -86,6 +86,7 @@ jobs:
         sed -i '/CONFIG_FIRMWARE_INCLUDE_TROJAN/d' .config #删除
         sed -i '/CONFIG_FIRMWARE_INCLUDE_KOOLPROXY/d' .config #删除
         sed -i '/CONFIG_FIRMWARE_INCLUDE_MINIDLNA/d' .config #删除
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_HTOP/d' .config #删除htop类似top命令
         ######################################################################
         #以下选项是定义你需要的功能（y=集成,n=忽略），重新写入到.config文件
         ######################################################################
@@ -126,6 +127,7 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_ALIDDNS=n" >> .config #阿里DDNS
         echo "CONFIG_FIRMWARE_INCLUDE_ADBYBY=n" >> .config #adbyby plus+
         echo "CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=n" >> .config #SS plus+
+        echo "CONFIG_FIRMWARE_INCLUDE_HTOP=n" >> .config #htop类似top命令
         #################### 以下集成到 Xiaomi-R3G #################################
         echo "CONFIG_FIRMWARE_PRODUCT_NewID=\"Xiaomi R3G\"" >> .config #更改管理页面标题
         echo "CONFIG_FIRMWARE_WEBUI_HIDE_VPN=y" >> .config #删除左侧导航栏VPN选项
