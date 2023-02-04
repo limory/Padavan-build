@@ -56,6 +56,7 @@ jobs:
         sed -i 's/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=n/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=y/g' .config
         sed -i 's/CONFIG_FIRMWARE_PRODUCT_ID/CONFIG_FIRMWARE_PRODUCT_NewID/g' ./user/www/Makefile
         sed -i 's/gomirrors.org\/dl\/go/golang.google.cn\/dl/g' ./tools/Makefile
+        sed -i 's/bintray.com\/htop\/source\/download_file?file_path=htop-/github.com\/htop-dev\/htop\/archive\/refs\/tags\//g' ./user/htop/Makefile
         ################################################################################################
         #因不同型号配置功能不一样，所以先把配置项删除，如果你自己要添加其他的，也要写上删除这一条，切记！！！
         ################################################################################################
