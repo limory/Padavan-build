@@ -88,6 +88,8 @@ jobs:
         sed -i '/CONFIG_FIRMWARE_INCLUDE_KOOLPROXY/d' .config #删除
         sed -i '/CONFIG_FIRMWARE_INCLUDE_MINIDLNA/d' .config #删除
         sed -i '/CONFIG_FIRMWARE_INCLUDE_HTOP/d' .config #删除htop类似top命令
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_TRANSMISSION/d' .config #删除
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_TRANSMISSION_WEB_CONTROL/d' .config #删除
         ######################################################################
         #以下选项是定义你需要的功能（y=集成,n=忽略），重新写入到.config文件
         ######################################################################
@@ -134,6 +136,8 @@ jobs:
         echo "CONFIG_FIRMWARE_WEBUI_HIDE_VPN=y" >> .config #删除左侧导航栏VPN选项
         echo "CONFIG_FIRMWARE_INCLUDE_CADDY=y" >> .config #WEB服务及文件管理
         echo "CONFIG_FIRMWARE_INCLUDE_MINIDLNA=y" >> .config ### Include Minidlna UPnP mediaserver. ~1.6MB
+        echo "CONFIG_FIRMWARE_INCLUDE_TRANSMISSION=y" >> .config ###
+        echo "CONFIG_FIRMWARE_INCLUDE_TRANSMISSION_WEB_CONTROL=y" >> .config ###
         fi
         #########################################################################################
         #自定义添加其它功能请参考源码configs/templates/目录下的config文件。按照上面的格式添加即可
