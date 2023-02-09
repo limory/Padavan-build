@@ -56,9 +56,9 @@ jobs:
         sed -i 's/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=n/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=y/g' .config
         sed -i 's/CONFIG_FIRMWARE_PRODUCT_ID/CONFIG_FIRMWARE_PRODUCT_NewID/g' ./user/www/Makefile
         sed -i 's/gomirrors.org\/dl\/go/golang.google.cn\/dl/g' ./tools/Makefile
-        sed -i 's/1.2.1/1.3.2/g' ./user/minidlna/Makefile #替换minidlna版本为1.3.2
-        sed -i '/patch -d/d' ./user/minidlna/Makefile #删除minidlna原来的patch
-        sed -i 's/--enable-demuxer=mpegvideo --enable-demuxer=ogg --enable-demuxer=wav/--enable-demuxer=mpegvideo --enable-demuxer=ogg --enable-demuxer=wav --enable-demuxer=mjpeg/g' ./libs/libav/Makefile #添加--enable-demuxer=mjpeg
+        #sed -i 's/1.2.1/1.3.2/g' ./user/minidlna/Makefile #替换minidlna版本为1.3.2
+        #sed -i '/patch -d/d' ./user/minidlna/Makefile #删除minidlna原来的patch
+        #sed -i 's/--enable-demuxer=mpegvideo --enable-demuxer=ogg --enable-demuxer=wav/--enable-demuxer=mpegvideo --enable-demuxer=ogg --enable-demuxer=wav --enable-demuxer=mjpeg/g' ./libs/libav/Makefile #添加--enable-demuxer=mjpeg
         #sed -i 's/bintray.com\/htop\/source\/download_file?file_path=htop-/github.com\/htop-dev\/htop\/archive\/refs\/tags\//g' ./user/htop/Makefile
         ################################################################################################
         #因不同型号配置功能不一样，所以先把配置项删除，如果你自己要添加其他的，也要写上删除这一条，切记！！！
@@ -155,5 +155,5 @@ jobs:
       uses: actions/upload-artifact@master
       if: always()
       with:
-        name: Padavan-Xiaomi-R3G-20230206
+        name: Padavan-Xiaomi-R3G
         path: /opt/images
