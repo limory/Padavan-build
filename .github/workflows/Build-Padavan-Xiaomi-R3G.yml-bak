@@ -1,5 +1,5 @@
 #修改TNAME: K2P 中的K2P为你需要编译的型号，注意名称要与configs/templates/目录下的名字相同
-name: Build-Padavan-Xiaomi-R3G
+name: Build-Padavan-Xiaomi-R3G-minidlna1.2.1
 
 on: 
   release:
@@ -137,7 +137,7 @@ jobs:
         echo "CONFIG_FIRMWARE_PRODUCT_NewID=\"Xiaomi R3G\"" >> .config #更改管理页面标题
         echo "CONFIG_FIRMWARE_WEBUI_HIDE_VPN=y" >> .config #删除左侧导航栏VPN选项
         echo "CONFIG_FIRMWARE_INCLUDE_CADDY=y" >> .config #WEB服务及文件管理
-        echo "CONFIG_FIRMWARE_INCLUDE_MINIDLNA=y" >> .config ### Include Minidlna UPnP mediaserver. ~1.6MB
+        echo "CONFIG_FIRMWARE_INCLUDE_MINIDLNA=y" >> .config ###Minidlna UPnP mediaserver. ~1.6MB
         echo "CONFIG_FIRMWARE_INCLUDE_TRANSMISSION=y" >> .config ###
         echo "CONFIG_FIRMWARE_INCLUDE_TRANSMISSION_WEB_CONTROL=y" >> .config ###
         #echo "CONFIG_FIRMWARE_INCLUDE_OPTWARE=y" >> .config ###后台USB管理，启用optware选项已经失效，没有相关动作
@@ -155,5 +155,5 @@ jobs:
       uses: actions/upload-artifact@master
       if: always()
       with:
-        name: Padavan-Xiaomi-R3G
+        name: Padavan-Xiaomi-R3G-minidlna1.2.1
         path: /opt/images
