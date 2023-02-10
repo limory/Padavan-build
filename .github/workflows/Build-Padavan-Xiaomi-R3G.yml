@@ -152,5 +152,5 @@ jobs:
       uses: actions/upload-artifact@master
       if: always()
       with:
-        name: Padavan-Xiaomi-R3G-minidlna-filebrowser-transmission-2022-02-09
+        name: Padavan-Xiaomi-R3G-minidlna-filebrowser-transmission-2022-02-11
         path: /opt/images
