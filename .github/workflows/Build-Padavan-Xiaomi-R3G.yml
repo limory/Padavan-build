@@ -137,11 +137,11 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_CADDY=y" >> .config #WEB服务及文件管理
         echo "CONFIG_FIRMWARE_INCLUDE_TRANSMISSION=y" >> .config ###TRANSMISSION 下载器
         echo "CONFIG_FIRMWARE_INCLUDE_TRANSMISSION_WEB_CONTROL=y" >> .config ###TRANSMISSION 下载器web管理
-        echo "CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=n" >> .config #SS plus+
-        echo "CONFIG_FIRMWARE_INCLUDE_ALIDDNS=n" >> .config #阿里DDNS
+        echo "CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=y" >> .config #SS plus+
+        echo "CONFIG_FIRMWARE_INCLUDE_ALIDDNS=y" >> .config #阿里DDNS
         echo "CONFIG_FIRMWARE_INCLUDE_ZEROTIER=y" >> .config #zerotier ~1.3M
-        echo "CONFIG_FIRMWARE_INCLUDE_SMARTDNS=n" >> .config #smartdns
-        echo "CONFIG_FIRMWARE_INCLUDE_SMARTDNSBIN=n" >> .config #smartdns二进制文件
+        echo "CONFIG_FIRMWARE_INCLUDE_SMARTDNS=y" >> .config #smartdns
+        echo "CONFIG_FIRMWARE_INCLUDE_SMARTDNSBIN=y" >> .config #smartdns二进制文件
         #echo "CONFIG_FIRMWARE_INCLUDE_OPTWARE=y" >> .config ###后台USB管理，启用optware选项已经失效，没有相关动作，trunk/user/Makefile默认把optware文件夹内的内容编译到/usr/bin/下，无需CONFIG_FIRMWARE_INCLUDE_OPTWARE配置
         fi
         #########################################################################################
